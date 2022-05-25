@@ -1,0 +1,39 @@
+.item {
+   display: flex;
+   align-items: center;
+   background: #FFFFFF;
+   border: 1px solid #F3F3F3;
+   border-radius: 20px;
+   padding: 20px 20px;
+   justify-content: space-between;
+   margin: 20px 0;
+
+      .left {
+         display: flex;
+         align-items: center;
+         
+      }
+
+      .removeBtn {
+         cursor: pointer;
+         opacity: 0.5;
+         &:hover{
+            opacity: 1;
+            transition: 0.2s ease-in-out;
+         }
+      }
+
+   .info{
+      max-width: 150px;
+      margin-left: 14px;
+      h5{
+         margin-bottom: 8px;
+         font-weight: 400;
+         font-size: 14px;
+      }
+      
+      
+   }
+}
+
+

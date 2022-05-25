@@ -1,0 +1,79 @@
+.overlay {
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0,0,0, 0.5);
+   z-index: 1;
+}
+
+.drawer {
+   position: absolute;
+   width: 385px;
+   margin: 0 auto;
+   right: 0;
+   height: 100%;
+   background: #FFFFFF;
+   padding: 30px;
+   display: flex;
+   flex-direction: column;
+ 
+
+   .drawerHeader{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+   }
+   h2{
+      margin: 0;
+      font-weight: 700;
+      font-size: 24px;
+   }
+
+   
+   
+   .total {
+      position: absolute;
+      bottom: 30px;
+      width: 325px;
+      margin: 0 auto;
+      
+     
+      button {
+         margin: 20px 0;
+         padding: 10px;
+         width: 100%;
+         color: #fff;
+         font-weight: 600;
+         background: #9DD558;
+         border-radius: 18px;
+         font-size: 16px;
+         
+   }
+
+      .price {
+         display: flex;
+         justify-content: space-between;
+         margin: 0 0 20px 0;
+         align-items: flex-end;
+      }
+      .tax {
+         display: flex;
+         justify-content: space-between;
+         align-items: flex-end;
+      }
+      div {
+         flex: 1;
+         height: 1px;
+         border-bottom: 1px dashed #dfdfdf;
+         position: relative;
+         top: -3px;
+         margin: 0 7px;
+      }
+      
+   }
+}
+
+
