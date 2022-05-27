@@ -1,7 +1,10 @@
 import s from './Content.module.scss'
 import Card from './Card/Card';
 
-const Content = () => {
+const Content = ({ cards }) => {
+
+   const cardElements = cards.map(item => <Card name={item.name} price={item.price} logo={item.img} />)
+
    return (
       <div className={s.content}>
          <div className={s.header}>
@@ -14,10 +17,7 @@ const Content = () => {
             </div>
          </div>
          <div className={s.items}>
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {cardElements}
          </div>
       </div>
 
