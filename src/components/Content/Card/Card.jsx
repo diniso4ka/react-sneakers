@@ -3,12 +3,9 @@ import s from './Card.module.scss'
 
 const Card = ({ name, price, logo, onPlus, onFavorit }) => {
 
-   const addToDrawer = () => {
-      alert('yes')
-   }
-
    const [isAdded, setIsAdded] = React.useState()
    const onClickPlus = () => {
+      onPlus({ name, price, logo })
       setIsAdded(!isAdded)
    }
 
@@ -26,11 +23,11 @@ const Card = ({ name, price, logo, onPlus, onFavorit }) => {
                   <b>{price} руб.</b>
                </div>
                <button onClick={onClickPlus} className={s.button}>
-                  <img src={isAdded ? '/img/checked.svg' : '/img/plus.svg'} width={32} />
+                  <img src={isAdded ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/checked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/plus.svg'} width={32} />
                </button>
             </div>
          </div>
-         <img onClick={onFavorit} className={s.favorit} src='/img/heart-unliked.svg' alt='unliked' />
+         <img onClick={onFavorit} className={s.favorit} src='https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/heart-unliked.svg' alt='unliked' />
       </div>
    )
 }
