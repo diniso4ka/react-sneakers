@@ -3,7 +3,10 @@ import Card from './Card/Card';
 
 const Content = ({ cards }) => {
 
-   const cardElements = cards.map(item => <Card name={item.name} price={item.price} logo={item.img} />)
+   const cardElements = cards.map(item => <Card name={item.name} price={item.price} logo={item.img}
+      onPlus={() => console.log(123)}
+      onFavorit={() => console.log(123)}
+   />)
 
    return (
       <div className={s.content}>

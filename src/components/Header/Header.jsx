@@ -1,6 +1,6 @@
 import s from './Header.module.scss'
 
-const Header = () => {
+const Header = ({ onClickCart }) => {
    return (
       <header>
          <div className={s.left}>
@@ -12,7 +12,7 @@ const Header = () => {
          </div>
          <div className={s.right}>
             <ul>
-               <li>
+               <li onClick={onClickCart} className={s.cart}>
                   <img src='/img/cart.svg' />
                   <span>1205 руб.</span>
                </li>

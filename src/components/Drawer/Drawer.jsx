@@ -1,13 +1,18 @@
 import s from './Drawer.module.scss'
+import React from 'react'
 import Item from './Item/Item'
 
-const Drawer = () => {
+const Drawer = ({ onClose }) => {
+
+
+
+
    return (
       <div className={s.overlay}>
          <div className={s.drawer}>
             <div className={s.drawerHeader}>
                <h2>Корзина</h2>
-               <img width={32} className={s.removeBtn} src='/img/btn-remove-focus.svg' alt='remove' />
+               <img onClick={onClose} width={32} className={s.removeBtn} src='/img/btn-remove-focus.svg' alt='remove' />
             </div>
 
 
