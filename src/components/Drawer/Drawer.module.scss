@@ -33,6 +33,11 @@
       font-size: 24px;
    }
 
+   .items {
+      max-height: 70%;
+      overflow: hidden;
+      overflow-y: scroll;
+   }
    
    
    .total {

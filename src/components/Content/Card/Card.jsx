@@ -15,15 +15,15 @@ const Card = ({ name, price, logo, onPlus, onFavorit }) => {
    return (
       <div className={s.item}>
          <div className={s.wrapper}>
-            <img className={s.logo} src={logo} width={133} height={112} />
+            <img className={s.logo} src={logo} width={133} height={112} alt='logo' />
             <h5>{name}</h5>
             <div className={s.info}>
                <div className={s.price}>
                   <span>ЦЕНА:</span> <br />
                   <b>{price} руб.</b>
                </div>
-               <button onClick={onClickPlus} className={s.button}>
-                  <img src={isAdded ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/checked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/plus.svg'} width={32} />
+               <button onClick={isAdded ? null : onClickPlus} className={s.button}>
+                  <img src={isAdded ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/checked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/plus.svg'} width={32} alt='button' />
                </button>
             </div>
          </div>

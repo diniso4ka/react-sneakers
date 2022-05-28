@@ -2,13 +2,22 @@ import s from './Drawer.module.scss'
 import React from 'react'
 import Item from './Item/Item'
 
-const Drawer = ({ onClose, cartItems = [] }) => {
-   const cartElements = cartItems.map((item) => <Item name={item.name} price={item.price} logo={item.img} />)
+const Drawer = ({ onClose, cartItems, onRemoveItem }) => {
+   const cartElements = cartItems.map((item) => <Item
+      key={item.name}
+      name={item.name}
+      price={item.price}
+      logo={item.img}
+      onRemoveItem={onRemoveItem}
+      id={item.id}
+
+   />)
 
 
 
    return (
       <div className={s.overlay}>
+
          <div className={s.drawer}>
             <div className={s.drawerHeader}>
                <h2>Корзина</h2>
