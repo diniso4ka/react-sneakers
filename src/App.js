@@ -5,6 +5,8 @@ import Header from './components/Header/Header';
 import Content from './components/Content/Content';
 import Drawer from './components/Drawer/Drawer';
 import axios from 'axios';
+import { Route, BrowserRouter, Routes, Link } from 'react-router-dom';
+import Favorite from './components/Favorite/Favorite';
 
 
 
@@ -73,10 +75,26 @@ function App() {
 
   return (
     <div className={s.wrapper}>
-      {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} onClose={() => setCartOpened(false)} />}
-      <Header onClickCart={onClickCart} />
-      <Content onRemoveFromFavorite={onRemoveFromFavorite} onAddToFavorite={onAddToFavorite} onRemoveItem={onRemoveItem} searchValue={searchValue} OnChangeSearchInput={OnChangeSearchInput} onAddToCart={onAddToCart} items={items} />
-    </div>
+      <BrowserRouter>
+
+        {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} onClose={() => setCartOpened(false)} />}
+        <Header Routes={Routes} onClickCart={onClickCart} />
+        <Routes>
+          <Route path='/' exect element={<Content
+            onRemoveFromFavorite={onRemoveFromFavorite}
+            onAddToFavorite={onAddToFavorite}
+            onRemoveItem={onRemoveItem}
+            searchValue={searchValue}
+            OnChangeSearchInput={OnChangeSearchInput}
+            onAddToCart={onAddToCart}
+            items={items} />} />
+          <Route path='/favorite' exect element={<Favorite
+
+          />} />
+        </Routes>
+      </BrowserRouter>
+    </div >
+
 
   );
 }
