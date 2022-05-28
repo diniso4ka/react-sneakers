@@ -17,6 +17,9 @@ const Header = ({ onClickCart }) => {
                   <span>1205 руб.</span>
                </li>
                <li>
+                  <img src='https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/favorite.svg' />
+               </li>
+               <li>
                   <img src='https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/profile.svg' />
                </li>
             </ul>
