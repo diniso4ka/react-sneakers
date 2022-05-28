@@ -1,15 +1,18 @@
 import s from './Content.module.scss'
 import Card from './Card/Card';
 
-const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput }) => {
+const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddToFavorite, }) => {
 
    const cardElements = items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase())).map(item => <Card
       key={item.name}
       name={item.name}
       price={item.price}
       logo={item.img}
+      id={item.id}
       onPlus={(obj) => onAddToCart(obj)}
-      onFavorit={() => console.log(123)}
+      onFavorite={(obj) => onAddToFavorite(obj)}
+
+
 
 
    />)

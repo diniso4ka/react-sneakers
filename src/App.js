@@ -13,6 +13,7 @@ function App() {
 
   const [cartOpened, setCartOpened] = React.useState(false)
   const [items, setItems] = React.useState([])
+  const [favorites, setFavorites] = React.useState([])
   const [cartItems, setCartItems] = React.useState([])
   const [searchValue, setSearchValue] = React.useState('')
 
@@ -32,22 +33,33 @@ function App() {
   }, []
   )
 
+
+
+
   const onClickCart = () => {
     setCartOpened(true)
   }
 
   const onAddToCart = (obj) => {
-
     axios.post('https://62910b9027f4ba1c65c70b38.mockapi.io/cart', obj);
     setCartItems(prev => [...prev, obj])
   }
 
   const onRemoveItem = (id) => {
-    console.log(id)
-    axios.delete(`https://62910b9027f4ba1c65c70b38.mockapi.io/cart${id}`);
+    axios.delete(`https://62910b9027f4ba1c65c70b38.mockapi.io/cart/${id}`);
     setCartItems((prev) => prev.filter((item) => item.id !== id))
-
   }
+
+  const onAddToFavorite = (obj) => {
+    axios.post('https://62910b9027f4ba1c65c70b38.mockapi.io/favorites', obj);
+    setFavorites(prev => [...prev, obj])
+  }
+
+  const onRemoveFromFavorite = (id) => {
+    axios.delete(`https://62910b9027f4ba1c65c70b38.mockapi.io/favorites/${id}`);
+    setFavorites((prev) => prev.filter((item) => item.id !== id))
+  }
+
 
 
 
@@ -63,7 +75,7 @@ function App() {
     <div className={s.wrapper}>
       {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} onClose={() => setCartOpened(false)} />}
       <Header onClickCart={onClickCart} />
-      <Content onRemoveItem={onRemoveItem} searchValue={searchValue} OnChangeSearchInput={OnChangeSearchInput} onAddToCart={onAddToCart} items={items} />
+      <Content onRemoveFromFavorite={onRemoveFromFavorite} onAddToFavorite={onAddToFavorite} onRemoveItem={onRemoveItem} searchValue={searchValue} OnChangeSearchInput={OnChangeSearchInput} onAddToCart={onAddToCart} items={items} />
     </div>
 
   );
