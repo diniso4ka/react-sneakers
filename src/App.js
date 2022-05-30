@@ -31,6 +31,9 @@ function App() {
     axios.get('https://62910b9027f4ba1c65c70b38.mockapi.io/cart').then((res) => {
       setCartItems(res.data);
     });
+    axios.get('https://62910b9027f4ba1c65c70b38.mockapi.io/favorites').then((res) => {
+      setFavorites(res.data);
+    });
 
   }, []
   )
@@ -88,8 +91,8 @@ function App() {
             OnChangeSearchInput={OnChangeSearchInput}
             onAddToCart={onAddToCart}
             items={items} />} />
-          <Route path='/favorite' exect element={<Favorite
-
+          <Route path='/favorites' exect element={<Favorite
+            favorites={favorites}
           />} />
         </Routes>
       </BrowserRouter>

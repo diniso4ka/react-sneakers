@@ -12,9 +12,6 @@ const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddTo
       onPlus={(obj) => onAddToCart(obj)}
       onFavorite={(obj) => onAddToFavorite(obj)}
 
-
-
-
    />)
 
    return (
