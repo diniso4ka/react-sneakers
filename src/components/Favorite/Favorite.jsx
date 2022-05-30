@@ -2,7 +2,8 @@ import s from './Favorite.module.scss'
 import FavoriteCard from './FavoriteCard/FavoriteCard'
 
 
-const Favorite = ({ favorites }) => {
+const Favorite = ({ favorites, isAdded, setIsAdded, isFavorite, setIsFavorite, onAddToFavorite, onAddToCart }) => {
+
 
    const favoritElements = favorites.map((item) => <FavoriteCard
       key={item.name}
@@ -10,7 +11,7 @@ const Favorite = ({ favorites }) => {
       price={item.price}
       logo={item.logo}
       id={item.id}
-
+      isFavorite={true}
    />)
 
 

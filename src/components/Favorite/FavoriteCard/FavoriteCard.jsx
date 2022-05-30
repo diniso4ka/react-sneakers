@@ -1,21 +1,17 @@
 import React from 'react'
 import s from './FavoriteCard.module.scss'
 
-const FavoriteCard = ({ name, price, logo, onPlus, onFavorite }) => {
+const FavoriteCard = ({ name, price, logo, onFavorite, isAdded, setIsAdded, isFavorite, onPlus }) => {
 
 
-
-   const [isAdded, setIsAdded] = React.useState()
-   const [isFavorite, setIsFavorite] = React.useState(false)
-   const onClickPlus = () => {
+   const onClickPlus = ({ item }) => {
+      console.log(item)
       onPlus({ name, price, logo })
       setIsAdded(!isAdded)
    }
 
-   const onClickFavorite = () => {
-      setIsFavorite(!isFavorite)
-      onFavorite({ name, price, logo })
-   }
+
+
 
 
 
@@ -37,7 +33,7 @@ const FavoriteCard = ({ name, price, logo, onPlus, onFavorite }) => {
                </button>
             </div>
          </div>
-         <img onClick={onClickFavorite} className={s.favorit} src={isFavorite ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-liked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-unliked.svg'} alt='unliked' />
+         <img className={s.favorit} src={isFavorite ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-liked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-unliked.svg'} alt='unliked' />
       </div>
    )
 }

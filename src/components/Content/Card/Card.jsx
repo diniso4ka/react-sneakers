@@ -2,10 +2,12 @@ import React from 'react'
 import s from './Card.module.scss'
 
 const Card = ({ name, price, logo, onPlus, onFavorite }) => {
-
    const [isAdded, setIsAdded] = React.useState()
    const [isFavorite, setIsFavorite] = React.useState(false)
-   const onClickPlus = () => {
+
+
+
+   const onClickPlus = ({ }) => {
       onPlus({ name, price, logo })
       setIsAdded(!isAdded)
    }
@@ -14,8 +16,6 @@ const Card = ({ name, price, logo, onPlus, onFavorite }) => {
       setIsFavorite(!isFavorite)
       onFavorite({ name, price, logo })
    }
-
-
 
 
 

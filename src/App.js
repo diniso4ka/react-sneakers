@@ -76,6 +76,10 @@ function App() {
 
 
 
+
+
+
+
   return (
     <div className={s.wrapper}>
       <BrowserRouter>
@@ -90,9 +94,13 @@ function App() {
             searchValue={searchValue}
             OnChangeSearchInput={OnChangeSearchInput}
             onAddToCart={onAddToCart}
-            items={items} />} />
+            items={items}
+
+          />} />
           <Route path='/favorites' exect element={<Favorite
             favorites={favorites}
+            onAddToFavorite={onAddToFavorite}
+            onRemoveFromFavorite={onRemoveFromFavorite}
           />} />
         </Routes>
       </BrowserRouter>

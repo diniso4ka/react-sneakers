@@ -3,6 +3,7 @@ import Card from './Card/Card';
 
 const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddToFavorite, }) => {
 
+
    const cardElements = items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase())).map(item => <Card
       key={item.name}
       name={item.name}
@@ -11,7 +12,6 @@ const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddTo
       id={item.id}
       onPlus={(obj) => onAddToCart(obj)}
       onFavorite={(obj) => onAddToFavorite(obj)}
-
    />)
 
    return (
