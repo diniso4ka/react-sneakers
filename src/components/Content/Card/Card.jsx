@@ -1,7 +1,7 @@
 import React from 'react'
 import s from './Card.module.scss'
 
-const Card = ({ name, price, logo, onPlus, onFavorite }) => {
+const Card = ({ name, price, logo, onPlus, onFavorite, id }) => {
    const [isAdded, setIsAdded] = React.useState()
    const [isFavorite, setIsFavorite] = React.useState(false)
 
@@ -14,7 +14,7 @@ const Card = ({ name, price, logo, onPlus, onFavorite }) => {
 
    const onClickFavorite = () => {
       setIsFavorite(!isFavorite)
-      onFavorite({ name, price, logo })
+      onFavorite({ name, price, logo, id })
    }
 
 

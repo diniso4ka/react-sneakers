@@ -1,11 +1,10 @@
 import React from 'react'
 import s from './FavoriteCard.module.scss'
 
-const FavoriteCard = ({ name, price, logo, onFavorite, isAdded, setIsAdded, isFavorite, onPlus }) => {
+const FavoriteCard = ({ name, price, logo, onAddToFavorite, isAdded, setIsAdded, isFavorite, onPlus }) => {
 
 
    const onClickPlus = ({ item }) => {
-      console.log(item)
       onPlus({ name, price, logo })
       setIsAdded(!isAdded)
    }
@@ -33,7 +32,7 @@ const FavoriteCard = ({ name, price, logo, onFavorite, isAdded, setIsAdded, isFa
                </button>
             </div>
          </div>
-         <img className={s.favorit} src={isFavorite ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-liked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-unliked.svg'} alt='unliked' />
+         <img onClick={onAddToFavorite} className={s.favorit} src={isFavorite ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-liked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-unliked.svg'} alt='unliked' />
       </div>
    )
 }

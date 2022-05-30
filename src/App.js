@@ -56,14 +56,16 @@ function App() {
   }
 
   const onAddToFavorite = (obj) => {
-    axios.post('https://62910b9027f4ba1c65c70b38.mockapi.io/favorites', obj);
-    setFavorites(prev => [...prev, obj])
+    console.log(obj)
+    // if (favorites.find(item => item.id === obj.id)) {
+    //   axios.delete(`https://62910b9027f4ba1c65c70b38.mockapi.io/favorites/${obj.id}`);
+    //   setFavorites((prev) => prev.filter((item) => item.id !== obj.id))
+    // } else
+    //   axios.post('https://62910b9027f4ba1c65c70b38.mockapi.io/favorites', obj);
+    // setFavorites(prev => [...prev, obj])
   }
 
-  const onRemoveFromFavorite = (id) => {
-    axios.delete(`https://62910b9027f4ba1c65c70b38.mockapi.io/favorites/${id}`);
-    setFavorites((prev) => prev.filter((item) => item.id !== id))
-  }
+
 
 
 
@@ -88,19 +90,18 @@ function App() {
         <Header Routes={Routes} onClickCart={onClickCart} />
         <Routes>
           <Route path='/' exect element={<Content
-            onRemoveFromFavorite={onRemoveFromFavorite}
+
             onAddToFavorite={onAddToFavorite}
             onRemoveItem={onRemoveItem}
             searchValue={searchValue}
             OnChangeSearchInput={OnChangeSearchInput}
             onAddToCart={onAddToCart}
             items={items}
-
           />} />
           <Route path='/favorites' exect element={<Favorite
             favorites={favorites}
             onAddToFavorite={onAddToFavorite}
-            onRemoveFromFavorite={onRemoveFromFavorite}
+
           />} />
         </Routes>
       </BrowserRouter>
