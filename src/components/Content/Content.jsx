@@ -1,19 +1,27 @@
 import s from './Content.module.scss'
 import Card from './Card/Card';
 
-const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddToFavorite, }) => {
+const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddToFavorite, isLoading }) => {
 
 
-   const cardElements = items.filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase())).map(item => <Card
-      key={item.name}
-      name={item.name}
-      price={item.price}
-      logo={item.img}
-      id={item.id}
-      isFavorite={false}
-      onPlus={(obj) => onAddToCart(obj)}
-      onFavorite={(obj) => onAddToFavorite(obj)}
-   />)
+   const arr = [{ name: 1, logo: 2, price: 3 },
+   { name: 2, logo: 3, price: 4 },
+   { name: 5, logo: 6, price: 7 },
+   { name: 5, logo: 6, price: 7 }, { name: 5, logo: 6, price: 7 }, { name: 5, logo: 6, price: 7 }, { name: 5, logo: 6, price: 7 }]
+
+
+   const renderItems = () => {
+      const filtredItems = items.filter((item) =>
+         item.name.toLowerCase().includes(searchValue.toLowerCase()))
+      return ((isLoading ? arr : filtredItems).map(item => <Card
+         {...item}
+         key={item.id}
+         onPlus={(obj) => onAddToCart(obj)}
+         onFavorite={(obj) => onAddToFavorite(obj)}
+         loading={isLoading}
+      />))
+   }
+
 
    return (
       <div className={s.content}>
@@ -27,7 +35,7 @@ const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddTo
             </div>
          </div>
          <div className={s.items}>
-            {cardElements}
+            {renderItems()}
          </div>
       </div>
 

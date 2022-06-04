@@ -4,7 +4,7 @@ import Item from './Item/Item'
 
 const Drawer = ({ onClose, cartItems, onRemoveItem }) => {
    const cartElements = cartItems.map((item) => <Item
-      key={item.name}
+      key={item.id}
       name={item.name}
       price={item.price}
       logo={item.logo}

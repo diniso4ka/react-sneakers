@@ -4,7 +4,7 @@ import Card from '../Content/Card/Card'
 
 const Favorite = ({ favorites, onAddToFavorite, items }) => {
    const favoritElements = favorites.map((item) => <Card
-      key={item.name}
+      key={item.id}
       name={item.name}
       price={item.price}
       logo={item.logo}
