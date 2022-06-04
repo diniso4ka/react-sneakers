@@ -1,13 +1,16 @@
 import s from './Favorite.module.scss'
 import Card from '../Content/Card/Card'
+import React from 'react'
+import AppContext from '../../context/context'
 
+const Favorite = ({ onAddToFavorite, }) => {
+   const { favorites } = React.useContext(AppContext)
 
-const Favorite = ({ favorites, onAddToFavorite, items }) => {
    const favoritElements = favorites.map((item) => <Card
       key={item.id}
       name={item.name}
       price={item.price}
-      logo={item.logo}
+      img={item.img}
       id={item.id}
       isFavorite={true}
       onFavorite={onAddToFavorite}

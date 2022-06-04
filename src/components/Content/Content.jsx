@@ -1,5 +1,7 @@
 import s from './Content.module.scss'
 import Card from './Card/Card';
+import AppContext from '../../context/context';
+import React from 'react';
 
 const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddToFavorite, isLoading }) => {
 
@@ -8,6 +10,8 @@ const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddTo
    { name: 2, logo: 3, price: 4 },
    { name: 5, logo: 6, price: 7 },
    { name: 5, logo: 6, price: 7 }, { name: 5, logo: 6, price: 7 }, { name: 5, logo: 6, price: 7 }, { name: 5, logo: 6, price: 7 }]
+
+   const { isItemAdded } = React.useContext(AppContext)
 
 
    const renderItems = () => {
@@ -19,8 +23,11 @@ const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddTo
          onPlus={(obj) => onAddToCart(obj)}
          onFavorite={(obj) => onAddToFavorite(obj)}
          loading={isLoading}
-      />))
+         added={isItemAdded(item.id)}
+      />)
+      )
    }
+
 
 
    return (

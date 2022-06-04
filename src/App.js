@@ -1,11 +1,14 @@
 import './null.scss'
-import React from 'react';
 import s from './App.module.scss'
+import React from 'react';
+import axios from 'axios';
+import { Route, BrowserRouter, Routes, Link } from 'react-router-dom';
+import AppContext from './context/context';
+
+
 import Header from './components/Header/Header';
 import Content from './components/Content/Content';
 import Drawer from './components/Drawer/Drawer';
-import axios from 'axios';
-import { Route, BrowserRouter, Routes, Link } from 'react-router-dom';
 import Favorite from './components/Favorite/Favorite';
 
 
@@ -85,7 +88,11 @@ function App() {
     } catch (error) {
       alert('Не удалось добавить в фавориты')
     }
-    console.log(obj)
+
+  }
+
+  const isItemAdded = (name) => {
+    return cartItems.some(obj => obj.name === name)
   }
 
 
@@ -98,40 +105,30 @@ function App() {
 
 
 
-
-
-
-
-
-
-
   return (
-    <div className={s.wrapper}>
-      <BrowserRouter>
-
-        {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} onClose={() => setCartOpened(false)} />}
-        <Header Routes={Routes} onClickCart={onClickCart} />
-        <Routes>
-          <Route path='/' exect element={<Content
-            onAddToFavorite={onAddToFavorite}
-            onRemoveItem={onRemoveItem}
-            searchValue={searchValue}
-            OnChangeSearchInput={OnChangeSearchInput}
-            onAddToCart={onAddToCart}
-            items={items}
-            cartItems={cartItems}
-            isLoading={isLoading}
-          />} />
-          <Route path='/favorites' exect element={<Favorite
-            favorites={favorites}
-            onAddToFavorite={onAddToFavorite}
-            items={items}
-
-
-          />} />
-        </Routes>
-      </BrowserRouter>
-    </div >
+    <AppContext.Provider value={{ favorites, items, isItemAdded }}>
+      <div className={s.wrapper}>
+        <BrowserRouter>
+          {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} onClose={() => setCartOpened(false)} />}
+          <Header Routes={Routes} onClickCart={onClickCart} />
+          <Routes>
+            <Route path='/' exect element={<Content
+              onAddToFavorite={onAddToFavorite}
+              onRemoveItem={onRemoveItem}
+              searchValue={searchValue}
+              OnChangeSearchInput={OnChangeSearchInput}
+              onAddToCart={onAddToCart}
+              items={items}
+              cartItems={cartItems}
+              isLoading={isLoading}
+            />} />
+            <Route path='/favorites' exect element={<Favorite
+              onAddToFavorite={onAddToFavorite}
+            />} />
+          </Routes>
+        </BrowserRouter>
+      </div >
+    </AppContext.Provider>
 
 
   );

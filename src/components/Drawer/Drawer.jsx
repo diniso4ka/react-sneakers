@@ -7,7 +7,7 @@ const Drawer = ({ onClose, cartItems, onRemoveItem }) => {
       key={item.id}
       name={item.name}
       price={item.price}
-      logo={item.logo}
+      logo={item.img}
       onRemoveItem={onRemoveItem}
       id={item.id}
 

@@ -1,16 +1,18 @@
 import React from 'react'
 import s from './Card.module.scss'
 import ContentLoader from 'react-content-loader'
+import AppContext from '../../../context/context'
 
 const Card = ({ name, price, img, onPlus, onFavorite, id, loading }) => {
-   const [isAdded, setIsAdded] = React.useState()
-   const [isFavorite, setIsFavorite] = React.useState(false)
+   const { isItemAdded } = React.useContext(AppContext)
 
+   const [isFavorite, setIsFavorite] = React.useState(false)
+   console.log(name, isItemAdded(id))
 
 
    const onClickPlus = ({ }) => {
       onPlus({ name, price, img, id })
-      setIsAdded(!isAdded)
+
    }
 
    const onClickFavorite = () => {
@@ -28,7 +30,7 @@ const Card = ({ name, price, img, onPlus, onFavorite, id, loading }) => {
       <div className={s.item}>
          {loading ?
             <ContentLoader
-               speed={2}
+               speed={3}
                width={155}
                height={250}
                viewBox="0 0 155 265"
@@ -51,7 +53,7 @@ const Card = ({ name, price, img, onPlus, onFavorite, id, loading }) => {
                         <b>{price} руб.</b>
                      </div>
                      <button onClick={onClickPlus} className={s.button}>
-                        <img src={isAdded ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/checked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/plus.svg'} width={32} alt='button' />
+                        <img src={isItemAdded(name) ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/checked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/plus.svg'} width={32} alt='button' />
                      </button>
                   </div>
                </div>
