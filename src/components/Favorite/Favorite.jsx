@@ -12,7 +12,8 @@ const Favorite = ({ favorites, onAddToFavorite }) => {
       logo={item.logo}
       id={item.id}
       isFavorite={true}
-      onAddToFavorite={onAddToFavorite}
+      onFavorite={(obj) => onAddToFavorite(obj)}
+
    />)
 
 
