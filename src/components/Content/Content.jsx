@@ -10,6 +10,7 @@ const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddTo
       price={item.price}
       logo={item.img}
       id={item.id}
+      isFavorite={false}
       onPlus={(obj) => onAddToCart(obj)}
       onFavorite={(obj) => onAddToFavorite(obj)}
    />)
