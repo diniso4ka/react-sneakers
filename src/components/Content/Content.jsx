@@ -11,7 +11,7 @@ const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddTo
    { name: 5, logo: 6, price: 7 },
    { name: 5, logo: 6, price: 7 }, { name: 5, logo: 6, price: 7 }, { name: 5, logo: 6, price: 7 }, { name: 5, logo: 6, price: 7 }]
 
-   const { isItemAdded } = React.useContext(AppContext)
+   const { isItemAdded, isItemFavorited } = React.useContext(AppContext)
 
 
    const renderItems = () => {
@@ -23,7 +23,8 @@ const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddTo
          onPlus={(obj) => onAddToCart(obj)}
          onFavorite={(obj) => onAddToFavorite(obj)}
          loading={isLoading}
-         added={isItemAdded(item.id)}
+         added={isItemAdded(item.name)}
+         favorite={isItemFavorited(item.name)}
       />)
       )
    }

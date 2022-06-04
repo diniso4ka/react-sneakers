@@ -12,7 +12,7 @@ const Favorite = ({ onAddToFavorite, }) => {
       price={item.price}
       img={item.img}
       id={item.id}
-      isFavorite={true}
+      favorite={true}
       onFavorite={onAddToFavorite}
    />)
 

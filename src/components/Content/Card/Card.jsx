@@ -4,20 +4,17 @@ import ContentLoader from 'react-content-loader'
 import AppContext from '../../../context/context'
 
 const Card = ({ name, price, img, onPlus, onFavorite, id, loading }) => {
-   const { isItemAdded } = React.useContext(AppContext)
+   const { isItemAdded, isItemFavorited } = React.useContext(AppContext)
 
-   const [isFavorite, setIsFavorite] = React.useState(false)
-   console.log(name, isItemAdded(id))
+
 
 
    const onClickPlus = ({ }) => {
       onPlus({ name, price, img, id })
-
    }
 
    const onClickFavorite = () => {
       onFavorite({ name, price, img, id })
-      setIsFavorite(!isFavorite)
    }
 
 
@@ -44,7 +41,7 @@ const Card = ({ name, price, img, onPlus, onFavorite, id, loading }) => {
             </ContentLoader> :
             <>
                <div className={s.wrapper}>
-                  <img onClick={onClickFavorite} className={s.favorit} src={isFavorite ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-liked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-unliked.svg'} alt='unliked' />
+                  <img onClick={onClickFavorite} className={s.favorit} src={isItemFavorited(name) ? 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-liked.svg' : 'https://raw.githubusercontent.com/diniso4ka/react-sneakers/1de0b622f8c07a415b2ea330ae3ee65e9a3e6f04/public/img/heart-unliked.svg'} alt='unliked' />
                   <img className={s.logo} src={img} width={133} height={112} alt='logo' />
                   <h5>{name}</h5>
                   <div className={s.info}>

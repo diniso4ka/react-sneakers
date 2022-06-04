@@ -95,6 +95,10 @@ function App() {
     return cartItems.some(obj => obj.name === name)
   }
 
+  const isItemFavorited = (name) => {
+    return favorites.some(obj => obj.name === name)
+  }
+
 
 
 
@@ -106,7 +110,7 @@ function App() {
 
 
   return (
-    <AppContext.Provider value={{ favorites, items, isItemAdded }}>
+    <AppContext.Provider value={{ favorites, items, isItemAdded, isItemFavorited }}>
       <div className={s.wrapper}>
         <BrowserRouter>
           {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} onClose={() => setCartOpened(false)} />}
