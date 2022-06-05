@@ -46,7 +46,7 @@ const Drawer = ({ onClose, cartItems, onRemoveItem }) => {
 
                </div> : <Info
                   title={'Корзина пустая'}
-                  img={2132}
+                  img={'https://github.com/diniso4ka/react-sneakers/blob/master/public/img/empty.png?raw=true'}
                   description={'Добавьте хотя бы одну пару кроссовок, чтобы сделать заказ.'}
                />
             }

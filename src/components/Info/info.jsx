@@ -9,7 +9,7 @@ const Info = ({ img, title, description }) => {
 
    return (
       <div className={s.cartEmpty}>
-         <img className="img"
+         <img className={s.img}
             width={120}
             height={120}
             alt={'empty'}
