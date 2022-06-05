@@ -110,7 +110,7 @@ function App() {
 
 
   return (
-    <AppContext.Provider value={{ favorites, items, isItemAdded, isItemFavorited }}>
+    <AppContext.Provider value={{ favorites, items, isItemAdded, isItemFavorited, setCartOpened }}>
       <div className={s.wrapper}>
         <BrowserRouter>
           {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} onClose={() => setCartOpened(false)} />}
