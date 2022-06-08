@@ -4,6 +4,7 @@
    justify-content: center;
    flex-direction: column;
    flex: 1;
+   margin: 100px 0;
 }
 
 .img {
@@ -20,13 +21,15 @@ opacity: 0.6;
 }
 
 .title {
+   font-size: 24;
+   font-weight: 900;
    padding-bottom: 20px;
 }
 
 .greenButton {
    margin: 20px 0;
    padding: 20px;
-   width: 100%;
+   width: 250px;
    color: #fff;
    font-weight: 600;
    background: #9DD558;

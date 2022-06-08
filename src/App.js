@@ -10,6 +10,7 @@ import Header from './components/Header/Header';
 import Content from './components/Content/Content';
 import Drawer from './components/Drawer/Drawer';
 import Favorite from './components/Favorite/Favorite';
+import Orders from './components/Orders/Orders';
 
 
 
@@ -58,9 +59,9 @@ function App() {
   const onAddToCart = async (obj) => {
     console.log(obj)
     try {
-      if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+      if (cartItems.find((item) => item.name === obj.name)) {
         axios.delete(`https://62910b9027f4ba1c65c70b38.mockapi.io/cart/${obj.id}`)
-        setCartItems((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)))
+        setCartItems((prev) => prev.filter((item) => item.name !== obj.name))
       } else {
         const { data } = await axios.post('https://62910b9027f4ba1c65c70b38.mockapi.io/cart', obj);
         setCartItems(prev => [...prev, data])
@@ -71,16 +72,15 @@ function App() {
   }
 
   const onRemoveItem = (id) => {
-    console.log(id)
     axios.delete(`https://62910b9027f4ba1c65c70b38.mockapi.io/cart/${id}`);
     setCartItems((prev) => prev.filter((item) => item.id !== id))
   }
 
   const onAddToFavorite = async (obj) => {
     try {
-      if (favorites.find((item) => Number(item.id) === Number(obj.id))) {
+      if (favorites.find((item) => item.name === obj.name)) {
         axios.delete(`https://62910b9027f4ba1c65c70b38.mockapi.io/favorites/${obj.id}`);
-        setFavorites((prev) => prev.filter((item) => Number(item.id) !== Number(obj.id)))
+        setFavorites((prev) => prev.filter((item) => item.name !== obj.name))
       } else {
         const { data } = await axios.post('https://62910b9027f4ba1c65c70b38.mockapi.io/favorites', obj)
         setFavorites((prev) => [...prev, data])
@@ -113,8 +113,13 @@ function App() {
     <AppContext.Provider value={{ favorites, items, isItemAdded, isItemFavorited, setCartOpened, setCartItems, cartItems }}>
       <div className={s.wrapper}>
         <BrowserRouter>
-          {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} onClose={() => setCartOpened(false)} />}
-          <Header Routes={Routes} onClickCart={onClickCart} />
+          {cartOpened && <Drawer
+            onRemoveItem={onRemoveItem}
+            cartItems={cartItems}
+            onClose={() => setCartOpened(false)} />}
+          <Header
+            Routes={Routes}
+            onClickCart={onClickCart} />
           <Routes>
             <Route path='/react-sneakers' exect element={<Content
               onAddToFavorite={onAddToFavorite}
@@ -128,6 +133,9 @@ function App() {
             />} />
             <Route path='/favorites' exect element={<Favorite
               onAddToFavorite={onAddToFavorite}
+            />} />
+            <Route path='/orders' exect element={<Orders
+              isLoading={isLoading}
             />} />
           </Routes>
         </BrowserRouter>

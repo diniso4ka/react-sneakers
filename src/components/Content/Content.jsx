@@ -17,9 +17,9 @@ const Content = ({ searchValue, items, onAddToCart, OnChangeSearchInput, onAddTo
    const renderItems = () => {
       const filtredItems = items.filter((item) =>
          item.name.toLowerCase().includes(searchValue.toLowerCase()))
-      return ((isLoading ? arr : filtredItems).map(item => <Card
+      return ((isLoading ? arr : filtredItems).map((item, index) => <Card
          {...item}
-         key={item.id}
+         key={index}
          onPlus={(obj) => onAddToCart(obj)}
          onFavorite={(obj) => onAddToFavorite(obj)}
          loading={isLoading}

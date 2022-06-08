@@ -30,9 +30,11 @@ const Header = ({ onClickCart }) => {
                      <img src='https://raw.githubusercontent.com/diniso4ka/react-sneakers/f7728eaf683e84b370dc929db92e0da85e39bcbb/public/img/favorite.svg' />
                   </li>
                </Link>
-               <li>
-                  <img src='https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/profile.svg' />
-               </li>
+               <Link to='/orders'>
+                  <li>
+                     <img src='https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/profile.svg' />
+                  </li>
+               </Link>
             </ul>
          </div>
       </header >

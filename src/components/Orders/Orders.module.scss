@@ -1,0 +1,36 @@
+.content {
+   padding: 40px;
+
+   .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      img {
+         margin-right: 14px;
+      }
+
+      .search {
+         width: 250px;
+         border: 1px solid #F3F3F3;
+         border-radius: 10px;
+         padding: 10px;
+      }
+   }
+    
+   .items {
+      display: flex;
+      flex-wrap: wrap;
+   }
+
+   h1{
+      padding: 0 0 40px 0;
+      margin: 0;
+      font-weight: 700;
+      font-size: 32px;
+   }
+
+   
+}
+
+
