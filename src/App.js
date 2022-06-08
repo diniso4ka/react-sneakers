@@ -4,7 +4,7 @@ import React from 'react';
 import axios from 'axios';
 import { Route, BrowserRouter, Routes, Link } from 'react-router-dom';
 import AppContext from './context/context';
-
+import { useCart } from './hooks/useCart';
 
 import Header from './components/Header/Header';
 import Content from './components/Content/Content';
@@ -15,11 +15,10 @@ import Favorite from './components/Favorite/Favorite';
 
 
 function App() {
-
+  const [cartItems, setCartItems] = React.useState([])
   const [cartOpened, setCartOpened] = React.useState(false)
   const [items, setItems] = React.useState([])
   const [favorites, setFavorites] = React.useState([])
-  const [cartItems, setCartItems] = React.useState([])
   const [searchValue, setSearchValue] = React.useState('')
   const [isLoading, setIsLoading] = React.useState(true)
 
@@ -48,7 +47,7 @@ function App() {
     fetchData()
   }, []
   )
-  console.log(cartItems)
+
 
 
 
