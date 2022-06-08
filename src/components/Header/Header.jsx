@@ -1,10 +1,16 @@
 import s from './Header.module.scss'
 import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import AppContext from '../../context/context'
 
 const Header = ({ onClickCart }) => {
+   const { cartItems } = useContext(AppContext)
+   const totalPrice = cartItems.reduce((sum, obj) => Number(obj.price) + sum, 0)
+
+   console.log(cartItems)
    return (
       <header>
-         <Link to='/'>
+         <Link to='/react-sneakers'>
             <div className={s.left}>
                <img src='https://github.com/diniso4ka/react-sneakers/blob/master/public/img/logo.png?raw=true' width={40} />
                <div className={s.info}>
@@ -17,7 +23,7 @@ const Header = ({ onClickCart }) => {
             <ul>
                <li onClick={onClickCart} className={s.cart}>
                   <img src='https://raw.githubusercontent.com/diniso4ka/react-sneakers/d39df04146bdc3039a6f3987f9498b716c13ca7f/public/img/cart.svg' />
-                  <span>1205 руб.</span>
+                  <span>{totalPrice} руб.</span>
                </li>
                <Link to='/favorites'>
                   <li>

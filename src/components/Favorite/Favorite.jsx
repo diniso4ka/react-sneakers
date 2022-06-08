@@ -21,8 +21,10 @@ const Favorite = ({ onAddToFavorite, }) => {
 
    return (
       <div className={s.Favorite}>
-         {favorites.length ?
-            <div className={s.favoriteContainer}>{favoritElements}</div> :
+         {favorites.length ? <div>
+            <div><h1>Ваши закладки</h1></div>
+            <div className={s.favoriteContainer}>
+               {favoritElements}</div></div> :
             <Info
                title={'Закладок нет :('}
                img={'https://github.com/diniso4ka/react-sneakers/blob/master/public/img/fav-empty.png?raw=true'}

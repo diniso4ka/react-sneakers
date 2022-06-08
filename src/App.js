@@ -24,6 +24,7 @@ function App() {
   const [isLoading, setIsLoading] = React.useState(true)
 
 
+
   const OnChangeSearchInput = (event) => {
     setSearchValue(event.target.value)
   }
@@ -47,7 +48,7 @@ function App() {
     fetchData()
   }, []
   )
-
+  console.log(cartItems)
 
 
 
@@ -110,13 +111,13 @@ function App() {
 
 
   return (
-    <AppContext.Provider value={{ favorites, items, isItemAdded, isItemFavorited, setCartOpened }}>
+    <AppContext.Provider value={{ favorites, items, isItemAdded, isItemFavorited, setCartOpened, setCartItems, cartItems }}>
       <div className={s.wrapper}>
         <BrowserRouter>
           {cartOpened && <Drawer onRemoveItem={onRemoveItem} cartItems={cartItems} onClose={() => setCartOpened(false)} />}
           <Header Routes={Routes} onClickCart={onClickCart} />
           <Routes>
-            <Route path='/' exect element={<Content
+            <Route path='/react-sneakers' exect element={<Content
               onAddToFavorite={onAddToFavorite}
               onRemoveItem={onRemoveItem}
               searchValue={searchValue}
