@@ -1,4 +1,4 @@
-header{
+header {
    padding: 45px 43px;
    display: flex;
    justify-content: space-between;
@@ -7,21 +7,35 @@ header{
    padding-bottom: 40px;
    border-bottom: 1px solid #EAEAEA;
 
-  
+   @media (max-width:570px) {
+      flex-direction: column;
+
+   }
+
+
+
    .left {
       display: flex;
       align-items: center;
 
-   img{
-      margin-right: 15px;
-   }
-      .info{
-         h3{
+      @media (max-width:570px) {
+         margin-bottom: 25px;
+
+
+      }
+
+      img {
+         margin-right: 15px;
+      }
+
+      .info {
+         h3 {
             font-weight: 700;
             font-size: 20px;
             margin-bottom: 3px;
          }
-         p{
+
+         p {
             font-weight: 400;
             font-size: 14px;
             opacity: 0.5;
@@ -30,23 +44,35 @@ header{
    }
 
    .right {
-      .cart{
+      .cart {
          cursor: pointer;
       }
-      
-      ul{
+
+      ul {
          display: flex;
          align-items: center;
-         li{
+
+         @media (max-width:570px) {
+            width: 200px;
+            justify-content: space-between;
+
+         }
+
+         li {
             display: flex;
             align-items: center;
-            margin-right: 30px;
+            margin-right: 20px;
 
-            span{
+
+
+
+
+
+            span {
                font-weight: 600;
                padding-left: 10px;
             }
-            
+
          }
       }
    }
